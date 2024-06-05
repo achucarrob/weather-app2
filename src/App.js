@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Weather from "./Weather";
 
@@ -8,7 +7,8 @@ function App() {
       <Weather />
       <footer>
         <p>
-          This project was coded by Claudia Achucarro. You can find the
+          This project was coded by Claudia Achucarro.
+          <div> You can find the
           repository in{" "}
           <a
             href="https://github.com/achucarrob/my-app"
@@ -18,6 +18,7 @@ function App() {
             {" "}
             this link.
           </a>
+          </div>
         </p>
       </footer>
     </div>
