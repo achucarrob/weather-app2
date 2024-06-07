@@ -17,6 +17,7 @@ export default function Weather() {
       description:response.data.condition.description,
       iconUrl:response.data.condition.icon_url,
       humidity:response.data.temperature.humidity,
+      feelsLike:response.data.temperature.feels_like,
       wind:response.data.wind.speed
     })
   }
@@ -49,12 +50,14 @@ export default function Weather() {
           <h1 className="current-city">{weatherData.city}</h1>
           <ul className="current-details">
             <li>Tuesday 21:46</li>
-            <li>{weatherData.description}</li>
+            <li className="text-capitalize">{weatherData.description}</li>
           </ul>
           {/* <div className="current-temperature"> */}
           <div className="row">
             <div className="col-6">
-              <span className="current-temperature-icon">☀️</span>
+              <span className="current-temperature-icon">
+                <img src={weatherData.iconUrl} alt={weatherData.description}/>
+              </span>
               <span
                 className="current-temperature-value"
                 id="current-temperature"
@@ -65,9 +68,10 @@ export default function Weather() {
             </div>
             <div className="col-6">
               <ul className="second-details">
-                <li>Precipitation: 15%</li>
-                <li>Humidity: 80%</li>
-                <li>Wind: 15 km/h</li>
+              <li>Feels like: {weatherData.feelsLike}°C</li>
+
+                <li>Humidity: {weatherData.humidity}%</li>
+                <li>Wind: {weatherData.wind} km/h</li>
               </ul>
             </div>
           </div>
