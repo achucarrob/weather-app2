@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import "./Weather.css";
 import axios from "axios";
+import DateFormat from "./DateFormat"
 
 export default function Weather(props) {
   // manejo de estado para renderizar componente con valor inicial en falso
@@ -9,10 +10,11 @@ export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({});
   // se llama a esta función una vez que la API devuelva una respuesta
   function handleResponse(response) {
-    console.log(response.data);
+    // console.log(response.data);
     setComponentReady(true);
     setWeatherData({
       city: response.data.city,
+      date: new Date(response.data.time * 1000),
       temperature: Math.round(response.data.temperature.current),
       description: response.data.condition.description,
       iconUrl: response.data.condition.icon_url,
@@ -46,7 +48,8 @@ export default function Weather(props) {
             {/* <div> */}
             <h1 className="current-city">{weatherData.city}</h1>
             <ul className="current-details">
-              <li>Tuesday 21:46</li>
+              {/* <li>Tuesday 21:46</li> */}
+              <DateFormat date={weatherData.date}/>
               <li className="text-capitalize">{weatherData.description}</li>
             </ul>
             {/* <div className="current-temperature"> */}
