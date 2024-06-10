@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import "./Weather.css";
 import axios from "axios";
-import DateFormat from "./DateFormat"
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   // manejo de estado para renderizar componente con valor inicial en falso
@@ -44,41 +44,7 @@ export default function Weather(props) {
           </form>
         </header>
         <main>
-          <div className="current-weather">
-            {/* <div> */}
-            <h1 className="current-city">{weatherData.city}</h1>
-            <ul className="current-details">
-              {/* <li>Tuesday 21:46</li> */}
-              <DateFormat date={weatherData.date}/>
-              <li className="text-capitalize">{weatherData.description}</li>
-            </ul>
-            {/* <div className="current-temperature"> */}
-            <div className="row">
-              <div className="col-6">
-                <span className="current-temperature-icon">
-                  <img
-                    src={weatherData.iconUrl}
-                    alt={weatherData.description}
-                  />
-                </span>
-                <span
-                  className="current-temperature-value"
-                  id="current-temperature"
-                >
-                  {weatherData.temperature}
-                </span>
-                <span className="current-temperature-unit">°C</span>
-              </div>
-              <div className="col-6">
-                <ul className="second-details">
-                  <li>Feels like: {weatherData.feelsLike}°C</li>
-
-                  <li>Humidity: {weatherData.humidity}%</li>
-                  <li>Wind: {weatherData.wind} km/h</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <WeatherInfo data={weatherData} />
         </main>
       </div>
     );
