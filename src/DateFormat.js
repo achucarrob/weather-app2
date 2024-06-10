@@ -1,5 +1,4 @@
 export default function DateFormat(props) {
-  console.log(props.date);
   const days = [
     "Sunday",
     "Monday",

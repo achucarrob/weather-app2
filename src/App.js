@@ -4,7 +4,7 @@ import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
-      <Weather cityName="Asunción" />
+      <Weather defaultCity="Asunción" />
       <footer>
         <p>
           This project was coded by Claudia Achucarro.
