@@ -66,6 +66,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
+    search();
     // Renderizar pantalla cargando
 
     return "Loading...";
