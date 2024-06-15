@@ -1,4 +1,5 @@
 import DateFormat from "./DateFormat";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -16,10 +17,7 @@ export default function WeatherInfo(props) {
           <span className="current-temperature-icon">
             <img src={props.data.iconUrl} alt={props.data.description} />
           </span>
-          <span className="current-temperature-value" id="current-temperature">
-            {props.data.temperature}
-          </span>
-          <span className="current-temperature-unit">°C</span>
+          <WeatherTemperature temperatureCelsius={props.data.temperature}/>
         </div>
         <div className="col-6">
           <ul className="second-details">
