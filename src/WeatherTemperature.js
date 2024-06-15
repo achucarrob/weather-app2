@@ -16,19 +16,19 @@ export default function WeatherTemperature(props) {
   if (unit === "celsius"){
 
       return (
-          <span>
+          <div>
       <span className="current-temperature-value" id="current-temperature">
         {props.temperatureCelsius}
       </span>
       <span className="current-temperature-unit">°C |
       <button onClick={showFarenheith} > °F </button>
       </span>
-    </span>
+    </div>
   );
 } else {
     let fahrenheit = (props.temperatureCelsius * 9) / 5 + 32
     return (
-        <span>
+        <div>
         <span className="current-temperature-value" id="current-temperature">
           {fahrenheit}
         </span>
@@ -36,7 +36,7 @@ export default function WeatherTemperature(props) {
         <button onClick={showCelsius} >°C </button>
         | °F
         </span>
-      </span>  
+      </div>  
     )
 }
 }
