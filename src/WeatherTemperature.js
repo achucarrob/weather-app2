@@ -21,7 +21,7 @@ export default function WeatherTemperature(props) {
         {props.temperatureCelsius}
       </span>
       <span className="current-temperature-unit">°C |
-      <a href="#" onClick={showFarenheith} > °F </a>
+      <button onClick={showFarenheith} > °F </button>
       </span>
     </span>
   );
@@ -33,7 +33,7 @@ export default function WeatherTemperature(props) {
           {fahrenheit}
         </span>
         <span className="current-temperature-unit">
-        <a href="#" onClick={showCelsius} >°C </a>
+        <button onClick={showCelsius} >°C </button>
         | °F
         </span>
       </span>  
