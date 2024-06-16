@@ -88,12 +88,11 @@ li {
 .current-temperature-icon {
   position: relative;
   top: -8px;
-  font-size: 40px;
-  margin-right: 10px;
+  margin-right: 0px;
 }
 
 .current-temperature-value {
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 700;
 }
 

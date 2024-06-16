@@ -3,40 +3,53 @@ import { useState } from "react";
 export default function WeatherTemperature(props) {
   let [unit, setUnit] = useState("celsius");
 
-  function showFarenheith(event){
+  function showFarenheith(event) {
     event.preventDefault();
-    setUnit("farenheith")
-  };
+    setUnit("farenheith");
+  }
 
-  function showCelsius(event){
+  function showCelsius(event) {
     event.preventDefault();
-    setUnit("celsius")
-  };
+    setUnit("celsius");
+  }
 
-  if (unit === "celsius"){
-
-      return (
-          <div>
-      <span className="current-temperature-value" id="current-temperature">
-        {props.temperatureCelsius}
-      </span>
-      <span className="current-temperature-unit">°C |
-      <button onClick={showFarenheith} > °F </button>
-      </span>
-    </div>
-  );
-} else {
-    let fahrenheit = (props.temperatureCelsius * 9) / 5 + 32
+  if (unit === "celsius") {
     return (
-        <div>
+      <span>
+        <span className="current-temperature-value" id="current-temperature">
+          {props.temperatureCelsius}
+        </span>
+        <span className="current-temperature-unit">
+          °C |
+          <button
+            type="button"
+            class="btn btn-outline-info btn-sm"
+            onClick={showFarenheith}
+          >
+            {" "}
+            °F{" "}
+          </button>
+        </span>
+      </span>
+    );
+  } else {
+    let fahrenheit = (props.temperatureCelsius * 9) / 5 + 32;
+    return (
+      <span>
         <span className="current-temperature-value" id="current-temperature">
           {fahrenheit}
         </span>
         <span className="current-temperature-unit">
-        <button onClick={showCelsius} >°C </button>
-        | °F
+          <button
+            type="button"
+            class="btn btn-outline-info btn-sm"
+            onClick={showCelsius}
+          >
+            °C{" "}
+          </button>
+          | °F
         </span>
-      </div>  
-    )
-}
+      </span>
+    );
+  }
 }

@@ -13,13 +13,13 @@ export default function WeatherInfo(props) {
       </ul>
       {/* <div className="current-temperature"> */}
       <div className="row">
-        <div className="col-6">
+        <div className="col-7 d-flex">
           <span className="current-temperature-icon">
-            <img src={props.data.iconUrl} alt={props.data.description} />
+            <img width={80} src={props.data.iconUrl} alt={props.data.description} />
           </span>
           <WeatherTemperature temperatureCelsius={props.data.temperature}/>
         </div>
-        <div className="col-6">
+        <div className="col-5">
           <ul className="second-details">
             <li>Feels like: {props.data.feelsLike}°C</li>
 
