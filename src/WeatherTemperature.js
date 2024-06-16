@@ -22,8 +22,9 @@ export default function WeatherTemperature(props) {
         <span className="current-temperature-unit">
           °C |
           <button
+            style={{ color: "rgb(53 42 191)" }}
             type="button"
-            class="btn btn-outline-info btn-sm"
+            class="btn btn-outline-link"
             onClick={showFarenheith}
           >
             {" "}
@@ -41,8 +42,9 @@ export default function WeatherTemperature(props) {
         </span>
         <span className="current-temperature-unit">
           <button
+            style={{ color: "rgb(53 42 191)" }}
             type="button"
-            class="btn btn-outline-info btn-sm"
+            class="btn btn-outline-link"
             onClick={showCelsius}
           >
             °C{" "}
