@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <Weather defaultCity="Asunción" />
       <footer>
-        <p>
+        <div>
           This project was coded by Claudia Achucarro.
           <div>
             {" "}
@@ -20,7 +20,7 @@ function App() {
               this link.
             </a>
           </div>
-        </p>
+        </div>
       </footer>
     </div>
   );

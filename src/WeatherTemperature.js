@@ -24,7 +24,7 @@ export default function WeatherTemperature(props) {
           <button
             style={{ color: "rgb(53 42 191)" }}
             type="button"
-            class="btn btn-outline-link"
+            className="btn btn-outline-link"
             onClick={showFarenheith}
           >
             {" "}
@@ -44,7 +44,7 @@ export default function WeatherTemperature(props) {
           <button
             style={{ color: "rgb(53 42 191)" }}
             type="button"
-            class="btn btn-outline-link"
+            className="btn btn-outline-link"
             onClick={showCelsius}
           >
             °C{" "}
