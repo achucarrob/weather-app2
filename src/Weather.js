@@ -3,15 +3,16 @@ import React from "react";
 import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   // manejo de estado para renderizar componente con valor inicial en falso
   let [componentReady, setComponentReady] = useState(false);
   let [weatherData, setWeatherData] = useState({});
-  let [city, setCity] = useState(props.defaultCity)
+  let [city, setCity] = useState(props.defaultCity);
+  let [forecastList, setDailyData] = useState([]);
   // se llama a esta función una vez que la API devuelva una respuesta
   function handleResponse(response) {
-    // console.log(response.data);
     setComponentReady(true);
     setWeatherData({
       city: response.data.city,
@@ -25,19 +26,27 @@ export default function Weather(props) {
     });
   }
 
-  function search(){
+  function handleForecastResponse(forecastResponse) {
+    // dentro de cada elemento de esta lista estan los datos para cada dia de la semana cada elemento es un objeto
+    const forecastList = forecastResponse.data.daily;
+    setDailyData(forecastList);
+  }
+
+  function search() {
     const key = "381070c4bbet21eec6f3do8eb01a4a37";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
+    let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}`;
     axios.get(apiUrl).then(handleResponse);
+    axios.get(forecastApiUrl).then(handleForecastResponse);
   }
 
-  function handleSubmit(event){
-    event.preventDefault()
-    search()
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
   }
 
-  function handleChange(event){
-    setCity(event.target.value)
+  function handleChange(event) {
+    setCity(event.target.value);
   }
 
   if (componentReady) {
@@ -62,13 +71,24 @@ export default function Weather(props) {
         </header>
         <main>
           <WeatherInfo data={weatherData} />
+          {/* Renderizar solo los componentes que sean de la fecha actual en adelante */}
+          <div className="container">
+            <div className="row">
+              <WeatherForecast dailyData={forecastList[0]} currentDay={weatherData.date}/>
+              <WeatherForecast dailyData={forecastList[1]} currentDay={weatherData.date}/>
+              <WeatherForecast dailyData={forecastList[2]} currentDay={weatherData.date}/>
+              <WeatherForecast dailyData={forecastList[3]} currentDay={weatherData.date}/>
+              <WeatherForecast dailyData={forecastList[4]} currentDay={weatherData.date}/>
+              <WeatherForecast dailyData={forecastList[5]} currentDay={weatherData.date}/>
+              <WeatherForecast dailyData={forecastList[6]} currentDay={weatherData.date}/>
+            </div>
+          </div>
         </main>
       </div>
     );
   } else {
     search();
     // Renderizar pantalla cargando
-
     return "Loading...";
   }
 }
