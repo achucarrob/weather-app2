@@ -11,6 +11,8 @@ export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({});
   let [city, setCity] = useState(props.defaultCity);
   let [forecastList, setDailyData] = useState([]);
+  // console.log(forecastList, 'forecastList')
+  // console.log(weatherData, 'weatherData')
   // se llama a esta función una vez que la API devuelva una respuesta
   function handleResponse(response) {
     setComponentReady(true);
@@ -33,12 +35,33 @@ export default function Weather(props) {
   }
 
   function search() {
+    console.log('Entra en search')
     const key = "381070c4bbet21eec6f3do8eb01a4a37";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
+    axios.get(apiUrl).then(handleResponse)
     let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}`;
-    axios.get(apiUrl).then(handleResponse);
-    axios.get(forecastApiUrl).then(handleForecastResponse);
+    axios.get(forecastApiUrl).then(handleForecastResponse)
+  //   axios.get(apiUrl).then(handleResponse).catch((error) => {
+  //     return (
+  //       <div>
+  //         <h2>City not found !!!</h2>
+  //       </div>
+  //     )
+  // })
   }
+
+  // function forecastShow(){
+  //   const key = "381070c4bbet21eec6f3do8eb01a4a37";
+  //   let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}`;
+  //   axios.get(forecastApiUrl).then(handleForecastResponse)
+  //   axios.get(forecastApiUrl).then(handleForecastResponse).catch((error) => {
+  //     return (
+  //       <div>
+  //         <h2>City not found</h2>
+  //       </div>
+  //     );
+  // })
+// }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -50,6 +73,7 @@ export default function Weather(props) {
   }
 
   if (componentReady) {
+    // console.log("Se renderiza el componente")
     // renderizar el componente una vez que la API responda
     return (
       <div className="weather-app">
@@ -57,7 +81,7 @@ export default function Weather(props) {
           <form className="form-style" onSubmit={handleSubmit}>
             <input
               type="search"
-              placeholder="Enter a city name..."
+              placeholder="Enter a city name please..."
               required=""
               className="search-input"
               onChange={handleChange}
@@ -74,7 +98,7 @@ export default function Weather(props) {
           {/* Renderizar solo los componentes que sean de la fecha actual en adelante */}
           <div className="container">
             <div className="row">
-              <WeatherForecast dailyData={forecastList[0]} currentDay={weatherData.date}/>
+              {/* <WeatherForecast dailyData={forecastList[0]} currentDay={weatherData.date}/> */}
               <WeatherForecast dailyData={forecastList[1]} currentDay={weatherData.date}/>
               <WeatherForecast dailyData={forecastList[2]} currentDay={weatherData.date}/>
               <WeatherForecast dailyData={forecastList[3]} currentDay={weatherData.date}/>
@@ -88,6 +112,7 @@ export default function Weather(props) {
     );
   } else {
     search();
+    // forecastShow()
     // Renderizar pantalla cargando
     return "Loading...";
   }
