@@ -99,12 +99,12 @@ export default function Weather(props) {
           <div className="container">
             <div className="row">
               {/* <WeatherForecast dailyData={forecastList[0]} currentDay={weatherData.date}/> */}
-              <WeatherForecast dailyData={forecastList[1]} currentDay={weatherData.date}/>
-              <WeatherForecast dailyData={forecastList[2]} currentDay={weatherData.date}/>
-              <WeatherForecast dailyData={forecastList[3]} currentDay={weatherData.date}/>
-              <WeatherForecast dailyData={forecastList[4]} currentDay={weatherData.date}/>
-              <WeatherForecast dailyData={forecastList[5]} currentDay={weatherData.date}/>
-              <WeatherForecast dailyData={forecastList[6]} currentDay={weatherData.date}/>
+              <WeatherForecast dailyData={forecastList[1]}/>
+              <WeatherForecast dailyData={forecastList[2]}/>
+              <WeatherForecast dailyData={forecastList[3]}/>
+              <WeatherForecast dailyData={forecastList[4]}/>
+              <WeatherForecast dailyData={forecastList[5]}/>
+              <WeatherForecast dailyData={forecastList[6]}/>
             </div>
           </div>
         </main>
