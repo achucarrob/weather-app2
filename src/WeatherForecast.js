@@ -2,7 +2,9 @@ export default function WeatherForecast(props) {
   // console.log(props.dailyData.time, 'props')
   // if ((!props.dailyData || props.currentDay) || (props.dailyData && !props.currentDay)) {
   if (!props.dailyData) {
-    return <div className="col-2">Try again!</div>;
+    return <div className="col-2 pt-5 pb-5">
+      <img width={60} src="https://static.vecteezy.com/system/resources/previews/026/623/306/non_2x/opened-portable-umbrella-black-white-error-404-flash-message-monochrome-empty-state-ui-design-page-not-found-popup-cartoon-image-flat-outline-illustration-concept-vector.jpg" alt="404 weather info not found"/>
+    </div>;
   } else {
     const newDate = new Date(props.dailyData.time * 1000);
     // console.log(newDate)
