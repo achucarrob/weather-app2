@@ -12,7 +12,7 @@ export default function WeatherForecast(props) {
     let day = days[newDate.getDay()];
     // const currentDay = days[props.currentDay.getDay()];
     return (
-      <div className="col-2">
+      <div className="col-4 col-sm-2 d-flex flex-column align-items-center justify-content-center">
         <div className="weather-forecast-date">{day}</div>
         <div>
           <img

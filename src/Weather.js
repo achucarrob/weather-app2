@@ -81,7 +81,7 @@ export default function Weather(props) {
           <form className="form-style" onSubmit={handleSubmit}>
             <input
               type="search"
-              placeholder="Enter a city name please..."
+              placeholder="Enter a city name..."
               required=""
               className="search-input"
               onChange={handleChange}
@@ -97,7 +97,7 @@ export default function Weather(props) {
           <WeatherInfo data={weatherData} />
           {/* Renderizar solo los componentes que sean de la fecha actual en adelante */}
           <div className="container">
-            <div className="row">
+            <div className="row  ">
               {/* <WeatherForecast dailyData={forecastList[0]} currentDay={weatherData.date}/> */}
               <WeatherForecast dailyData={forecastList[1]}/>
               <WeatherForecast dailyData={forecastList[2]}/>

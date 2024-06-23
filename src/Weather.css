@@ -70,6 +70,62 @@ main {
   font-weight: 700;
   margin: 10;
 }
+
+@media (max-width: 480px) {
+  main {
+    padding-top: 30px;
+    padding-inline: 0px;
+    /* text-align: center; */
+  }
+  .form-style {
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .search-input {
+    background-color: #edf0fd;
+    border: none;
+    color: rgba(39, 33, 66, 0.4);
+    font-size: 12px;
+    padding: 10px;
+    width: 65%;
+    border-radius: 6px;
+  }
+  
+  .search-button {
+    margin-left: 5px;
+    font-size: 12px;
+    background-color: rgb(82, 140, 178);
+    color: white;
+    border: none;
+    padding: 14px;
+    line-height: 1;
+    border-radius: 5px;
+  }
+
+  .search-button:hover {
+    background-color: rgb(117, 194, 246);
+  }
+
+  .current-city {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 10;
+    text-align: center;
+  }
+
+  .current-details {
+    color: rgba(39, 33, 66, 0.4);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+  }
+
+
+  }
+
 .current-details {
   color: rgba(39, 33, 66, 0.4);
   font-size: 16px;
@@ -152,6 +208,7 @@ a:hover {
 .weather-forecast-icon {
   width: 48px;
   height: 48px;
+  
 }
 
 .weather-forecast-temperatures {
